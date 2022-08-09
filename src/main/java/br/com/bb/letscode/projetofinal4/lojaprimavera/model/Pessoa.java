@@ -1,29 +1,13 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class Pessoa {
 
     private String nome;
     private int senha;
 
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getSenha() {
-        return senha;
-    }
-
-    public void setSenha(int senha) {
-        this.senha = senha;
-    }
-
-    public abstract String getDocumento();
-
-    public abstract void setDocumento (String numero);
 }

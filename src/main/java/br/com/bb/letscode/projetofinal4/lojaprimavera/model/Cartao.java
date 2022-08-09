@@ -1,8 +1,16 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDate;
 
-
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class Cartao {
 
     private int numero;
@@ -15,32 +23,4 @@ public class Cartao {
         this.validade = validade;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public Cartao setNumero(int numero) {
-        this.numero = numero;
-        return this;
-    }
-
-    public int getCvv() {
-        return cvv;
-    }
-
-    public Cartao setCvv(int cvv) {
-        this.cvv = cvv;
-        return this;
-    }
-
-    public LocalDate getValidade() {
-        return validade;
-    }
-
-    public Cartao setValidade(LocalDate validade) {
-        this.validade = validade;
-        return this;
-    }
-
-    
 }

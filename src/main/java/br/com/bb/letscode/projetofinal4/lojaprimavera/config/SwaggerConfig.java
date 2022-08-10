@@ -14,7 +14,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("Pedidos de Compras API")
-                        .description("Gabriel Oliveira e Delson Barbosa")
+                        .description("Gabriel Oliveira e Delson Lima")
                         .version("v0.0.1")
                 );
 

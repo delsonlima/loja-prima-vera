@@ -1,20 +1,30 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import br.com.bb.letscode.projetofinal4.lojaprimavera.model.enums.TipoPessoa;
+import lombok.*;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Cliente<T extends Pessoa> {
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+public class Cliente {
 
-    private Pessoa cliente;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String email;
+    private String nome;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
+    private TipoPessoa tipoPessoa;
+    @OneToMany(mappedBy = "cliente")
     private List<Cartao> cartoes;
 
 }

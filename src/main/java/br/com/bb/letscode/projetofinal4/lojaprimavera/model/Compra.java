@@ -1,10 +1,10 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -14,11 +14,14 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Compra {
 
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long idCompra;
-    private Cliente<?> cliente;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Cliente cliente;
     private Cartao cartao; // Meio de pagamento
     private LocalDate dataCompra;
     private LocalTime horaCompra;

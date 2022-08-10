@@ -1,41 +1,31 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
 import br.com.bb.letscode.projetofinal4.lojaprimavera.model.enums.TipoProduto;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProduto;
     private String nome;
-
     private Integer codigo;
-
     private BigDecimal preco;
-
     private BigDecimal desconto;
-
     private Integer quantidade;
-
     private TipoProduto tipoProduto;
-
-    public Produto(String nome, Integer codigo, BigDecimal preco, BigDecimal desconto, Integer quantidade) {
-        setNome(nome);
-        setCodigo(codigo);
-        setPreco(preco);
-        setDesconto(desconto);
-        setQuantidade(quantidade);
-    }
-
-    public Produto() {
-        new Produto("", 0, new BigDecimal(0), new BigDecimal(0), 0);
-    }
 
 }

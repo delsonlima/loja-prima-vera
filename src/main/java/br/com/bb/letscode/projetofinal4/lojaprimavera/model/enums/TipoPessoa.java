@@ -1,5 +1,7 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model.enums;
 
-public enum TipoProduto {
-    A, B, C
+public enum TipoPessoa {
+
+    FISICA, JURIDICA
+
 }

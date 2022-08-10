@@ -1,16 +1,21 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+import javax.persistence.*;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Endereco {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String rua;
     private String lote;
     private String numero;
@@ -18,5 +23,8 @@ public class Endereco {
     private String bairro;
     private String cidade;
     private String estado;
+
+    @OneToOne(mappedBy = "endereco")
+    private Cliente cliente;
 
 }

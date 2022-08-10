@@ -1,5 +1,7 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.service;
 
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.dto.ClienteDTO;
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.form.ClienteForm;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.model.Cliente;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.repository.ClienteRepository;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.service.interfaces.ClienteServiceInterface;
@@ -19,14 +21,14 @@ public class ClienteService implements ClienteServiceInterface {
 
     @Override
     @Transactional
-    public Cliente salvar (Cliente cliente) {
-        return clienteRepository.save(cliente);
+    public Cliente salvar (ClienteForm clienteForm) {
+        return clienteRepository.save(ClienteForm.desconverte(clienteForm));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Cliente> listar() {
-        return clienteRepository.findAll();
+    public List<ClienteDTO> listar() {
+        return ClienteDTO.converteListar(clienteRepository.findAll());
     }
 
 }

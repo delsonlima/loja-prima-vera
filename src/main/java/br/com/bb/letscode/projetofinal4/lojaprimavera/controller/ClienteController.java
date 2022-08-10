@@ -1,5 +1,7 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.controller;
 
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.dto.ClienteDTO;
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.form.ClienteForm;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.model.Cliente;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.service.interfaces.ClienteServiceInterface;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,12 +24,12 @@ public class ClienteController {
 
     @Operation(description = "Salvar cliente")
     @PostMapping
-    public ResponseEntity<Cliente> salvar(@RequestBody @Valid Cliente cliente) {
-        return ResponseEntity.ok(clienteServiceInterface.salvar(cliente));
+    public ResponseEntity<Cliente> salvar(@RequestBody @Valid ClienteForm clienteForm) {
+        return ResponseEntity.ok(clienteServiceInterface.salvar(clienteForm));
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> listar() {
+    public ResponseEntity<List<ClienteDTO>> listar() {
         return ResponseEntity.ok(clienteServiceInterface.listar());
     }
 

@@ -23,6 +23,7 @@ public class ClienteForm {
         this.id = cliente.getId();
         this.email = cliente.getEmail();
         this.nome = cliente.getNome();
+        this.tipoPessoa = cliente.getTipoPessoa();
     }
 
     public static List<ClienteForm> converteListar(List<Cliente> topicos){

@@ -23,6 +23,7 @@ public class ClienteDTO {
         this.id = cliente.getId();
         this.email = cliente.getEmail();
         this.nome = cliente.getNome();
+        this.tipoPessoa = cliente.getTipoPessoa();
     }
 
     public static List<ClienteDTO> converteListar(List<Cliente> clienteList){

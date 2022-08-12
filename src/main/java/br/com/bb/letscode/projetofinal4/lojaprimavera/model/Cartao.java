@@ -17,11 +17,16 @@ public class Cartao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numero;
+    private String numero;
     private int cvv;
     private LocalDate validade;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    public Cartao(String numero, int cvv, LocalDate validade) {
+        this.numero = numero;
+        this.cvv = cvv;
+        this.validade = validade;
+    }
 }

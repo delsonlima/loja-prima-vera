@@ -27,4 +27,14 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Cartao> cartoes;
 
+    public boolean adicionaCartao(Cartao cartao){
+        try {
+            this.cartoes.add(cartao);
+            return true;
+        } catch (NullPointerException nullPointerException){
+            nullPointerException.printStackTrace();
+            return false;
+        }
+    }
+
 }

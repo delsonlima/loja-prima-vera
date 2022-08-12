@@ -34,6 +34,7 @@ public class ClienteForm {
         cliente.setEmail(clienteForm.getEmail());
         cliente.setId(clienteForm.getId());
         cliente.setNome(clienteForm.getNome());
+        cliente.setTipoPessoa(clienteForm.getTipoPessoa());
         return cliente;
 
     }

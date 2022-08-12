@@ -14,8 +14,4 @@ public interface ClienteServiceInterface {
 
     List<ClienteDTO> listar();
 
-    boolean cadastraCartao(Long id, Cartao cartao);
-
-    boolean cadastraEndereco(Long id, Endereco endereco);
-
 }

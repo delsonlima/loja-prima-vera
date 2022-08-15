@@ -8,6 +8,5 @@ import java.util.Optional;
 public interface CartaoServiceInterface {
 
     Cartao salvar(CartaoForm cartao);
-    Cartao geraCartao();
 
 }

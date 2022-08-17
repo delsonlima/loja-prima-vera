@@ -30,17 +30,19 @@ public class ClienteController {
 
     @Operation(description = "Salvar cliente")
     @PostMapping("/cadastraCliente")
-    public ResponseEntity<Cliente> salvar(@RequestParam @Valid String email, String nome, TipoPessoa tipoPessoa) {
+    public ResponseEntity<Cliente> salvar(@RequestBody @Valid String email, String nome, TipoPessoa tipoPessoa) {
         ClienteForm clienteForm = new ClienteForm(null, email, nome, tipoPessoa);
         return ResponseEntity.ok(clienteServiceInterface.salvar(clienteForm));
     }
 
     @GetMapping("/getClientes")
+    @Operation(description = "Listas todos os clientes")
     public ResponseEntity<List<ClienteDTO>> listar() {
         return ResponseEntity.ok(clienteServiceInterface.listar());
     }
 
     @PostMapping("/cadastraCartao")
+    @Operation(description = "Cadastrar um cartão associado ao cliente")
     public ResponseEntity<Cartao> adicionaCartao(@RequestBody CartaoForm cartaoForm) {
         return ResponseEntity.ok(cartaoServiceInterface.salvar(cartaoForm));
 

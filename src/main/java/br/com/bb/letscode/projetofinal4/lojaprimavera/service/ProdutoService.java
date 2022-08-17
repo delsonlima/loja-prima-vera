@@ -1,6 +1,8 @@
 package br.com.bb.letscode.projetofinal4.lojaprimavera.service;
 
 import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.dto.ClienteDTO;
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.dto.ProdutoDTO;
+import br.com.bb.letscode.projetofinal4.lojaprimavera.controller.form.ProdutoForm;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.model.Produto;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.repository.ProdutoRepository;
 import br.com.bb.letscode.projetofinal4.lojaprimavera.service.interfaces.ProdutoServiceInterface;
@@ -19,7 +21,9 @@ public class ProdutoService implements ProdutoServiceInterface {
     }
 
     @Override
-    public Produto salvar(Produto produto) {
+    public Produto salvar(ProdutoForm produtoForm) {
+        Produto produto = new Produto(produtoForm);
+
         return produtoRepository.save(produto);
     }
 
@@ -30,9 +34,16 @@ public class ProdutoService implements ProdutoServiceInterface {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Produto> listar() {
-        return produtoRepository.findAll();
+    public List<ProdutoDTO> listar() {
+        return ProdutoDTO.converteLista(produtoRepository.findAll());
     }
+
+    @Override
+    public Produto getId(Long Id) {
+        return produtoRepository.getReferenceById(Id);
+    }
+
+
 }
 
 
